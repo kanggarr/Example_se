@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
           elevation: 0,
           leading: Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.account_circle, size: 40),
+            child: Icon(Icons.account_circle, size: 48),
           ),
           title: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,19 +53,19 @@ class _HomePageState extends State<HomePage> {
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 24,
                 ),
               ),
               Text(
-                'มาเริ่มทำข้อสอบกันเถอะ',
+                'มาเริ่มทำข้อสอบกันเถอะ!',
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.6),
-                  fontSize: 12,
+                  fontSize: 14,
                 ),
               ),
             ],
           ),
-          centerTitle: true,
+          // centerTitle: true,
         ),
       ),
       body: SafeArea(
@@ -80,17 +80,18 @@ class _HomePageState extends State<HomePage> {
                   scrollDirection: Axis.horizontal,
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   children: [
-                    _buildCategory('En', Icons.science, Colors.deepPurple),
+                    _buildCategory('En', Icons.science, Color(0xFF9184CC)),
                     SizedBox(width: 8),
                     _buildCategory(
-                        'ประเมิน', Icons.auto_awesome_mosaic, Colors.amber),
+                        'เคมี', Icons.auto_awesome_mosaic, Color(0xFFE0DFFD)),
                     SizedBox(width: 8),
                     _buildCategory(
-                        'สุขภาพ', Icons.favorite_border, Colors.pink),
+                        'ชีววิทยา', Icons.biotech, Color(0xFFFFC212)),
                     SizedBox(width: 8),
-                    _buildCategory('สมอง', Icons.biotech, Colors.lightBlue),
+                    _buildCategory(
+                        'คณิตศาสตร์', Icons.calculate, Color(0xFFF9B0C3)),
                     SizedBox(width: 8),
-                    _buildCategory('คณิตศาสตร์', Icons.calculate, Colors.green),
+                    _buildCategory('ฟิสิกส์', Icons.biotech, Color(0xFF9184CC)),
                   ],
                 ),
               ),
@@ -100,19 +101,19 @@ class _HomePageState extends State<HomePage> {
                   Expanded(
                     child: _buildInfoCard(
                       'ข้อสอบแนะนำ',
-                      'ข้อสอบแนะนำสำหรับคุณ',
+                      'ข้อสอบที่เหมาะสำหรับคุณ',
                       Icons.book,
-                      Colors.pink.shade100,
-                      Colors.pink.shade900,
+                      Colors.white,
+                      Colors.black,
                     ),
                   ),
                   Expanded(
                     child: _buildInfoCard(
-                      'หลักสูตรเร่งรัด',
-                      'หลักสูตรเร่งรัดสำหรับเรียนในวันหยุด',
+                      'ข้อสอบแก้ตัว',
+                      'รวมข้อสอบทุกวิชาที่คุณเคยตอบผิด',
                       Icons.access_alarm,
-                      Colors.blue.shade100,
-                      Colors.blue.shade900,
+                      Colors.white,
+                      Colors.black,
                     ),
                   ),
                 ],
@@ -127,19 +128,24 @@ class _HomePageState extends State<HomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'หน้าแรก',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.star),
+            label: 'เป้าหมาย',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.show_chart),
+            label: 'วิเคราะห์',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle),
-            label: 'Profile',
+            label: 'โปรไฟล์',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
+        selectedItemColor: Color(0xFFF9B0C3),
+        unselectedItemColor: Colors.black,
         onTap: _onItemTapped,
       ),
     );
@@ -220,10 +226,9 @@ class BannerWidget extends StatelessWidget {
       ),
       child: Center(
         child: Text(
-          'แบนเนอร์ประจำวันนี้',
+          'เป้าหมายประจำวันนี้',
           style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
+            fontSize: 20.0,
             color: Colors.black,
           ),
         ),
@@ -239,12 +244,12 @@ class SecondBannerWidget extends StatelessWidget {
       height: 100.0,
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        color: Color(0xFFDFFDE0),
+        color: Color(0xFFE0DFFD),
         borderRadius: BorderRadius.circular(10.0),
       ),
       child: Center(
         child: Text(
-          '-', // Example text for the second banner
+          'หลักสูตรเร่งรัด',
           style: TextStyle(
             fontSize: 24.0,
             fontWeight: FontWeight.bold,
