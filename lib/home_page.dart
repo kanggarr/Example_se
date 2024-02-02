@@ -71,9 +71,24 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BannerWidget(),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text(
+                    'วิชา',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      color: Colors.black,
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
               Container(
                 height: 70,
                 child: ListView(
@@ -118,7 +133,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               SecondBannerWidget(),
             ],
           ),
@@ -218,20 +233,40 @@ class BannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.0,
+      height: 110.0,
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Color(0xFFE0DFFD),
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Center(
-        child: Text(
-          'เป้าหมายประจำวันนี้',
-          style: TextStyle(
-            fontSize: 20.0,
-            color: Colors.black,
+      child: Row(
+        children: [
+          SizedBox(width: 30.0),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'เป้าหมายประจำวันนี้คือ',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  'ทำข้อสอบ 1 วิชา',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -241,21 +276,51 @@ class SecondBannerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.0,
+      height: 160.0,
       margin: EdgeInsets.all(10.0),
       decoration: BoxDecoration(
         color: Color(0xFFE0DFFD),
         borderRadius: BorderRadius.circular(10.0),
       ),
-      child: Center(
-        child: Text(
-          'หลักสูตรเร่งรัด',
-          style: TextStyle(
-            fontSize: 24.0,
-            fontWeight: FontWeight.bold,
-            color: Colors.black,
+      child: Row(
+        children: [
+          SizedBox(width: 30.0),
+          Expanded(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'หลักสูตรเร่งรัด',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Text(
+                  'หลักสูตรเร่งรัดสำหรับผู้เร่งรีบต้องการการเรียนรู้แบบรวดเร็วทันใจ',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                ElevatedButton(
+                  onPressed: () {
+                    // Handle button press
+                  },
+                  child: Text('เริ่มต้น'),
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                  ),
+                ),
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
